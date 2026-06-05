@@ -1,0 +1,13 @@
+# Maintainer: Lê Nguyễn Hoàng Gia Phú <crystalforceix@gmail.com>
+pkgname=rengeos-wallpapers
+pkgver=1.0
+pkgrel=1
+pkgdesc="Wallpapers for RengeOS"
+arch=('any')
+license=('GPLv3')
+
+package() {
+install -d "$pkgdir/usr/share/rengeos/wallpapers"
+install -Dm644 "$startdir/wallpapers/rengeos-default.png" \
+    "$pkgdir/usr/share/rengeos/wallpapers/rengeos-default.png"
+}

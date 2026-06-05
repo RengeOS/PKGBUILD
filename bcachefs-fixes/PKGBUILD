@@ -1,0 +1,19 @@
+# Maintainer: Le Nguyen Hoang Gia Phu <crystalforceix@gmail.com>
+
+pkgname=bcachefs-fixes
+pkgver=1.0.0
+pkgrel=1
+pkgdesc="The necessary libraries to build bcachefs."
+arch=('any')
+url="https://github.com/RengeOS/PKGBUILD.git"
+license=('GPL3')
+depends=()
+source=()
+sha256sums=()
+
+package() {
+    install -Dm755 "${startdir}/usr/lib/libsframe.so.2.0.0" \
+        "${pkgdir}/usr/lib/libsframe.so.2.0.0"
+    ln -s libsframe.so.2.0.0 \
+        "${pkgdir}/usr/lib/libsframe.so.2"
+}

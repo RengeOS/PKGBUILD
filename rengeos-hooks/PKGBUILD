@@ -1,0 +1,55 @@
+# Maintainer: Le Nguyen Hoang Gia Phu <crystalforceix@gmail.com>
+
+pkgname="rengeos-hooks"
+pkgver=2.0
+pkgrel=3
+pkgdesc='Pacman hooks for RengeOS filesystem'
+arch=('any')
+url="https://github.com/RengeOS/PKGBUILD"
+license=('GPL3')
+source=(
+		'rengeos-hooks.hook'
+		'rengeos-os-release.hook'
+		'rengeos-lsb-release.hook'
+		'rengeos-pixmaps.hook'
+		'rengeos-hooks-runner'
+		'rengeos.png'
+		'rengeos.svg'
+		'rengeos-logo.png'
+		'rengeos-logo.svg'
+		'rengeos-banner.svg'
+)
+
+sha512sums=(
+	'SKIP'
+	'SKIP'
+	'SKIP'
+	'SKIP'
+	'SKIP'
+	'SKIP'
+	'SKIP'
+	'SKIP'
+	'SKIP'
+	'SKIP'
+)
+            
+package() {
+	local hooks="$pkgdir"/usr/share/libalpm/hooks
+	local pixmaps="$pkgdir"/usr/share/pixmaps
+	local bin="$pkgdir"/usr/bin
+	local apps="$pkgdir"/usr/share/icons/hicolor/scalable/apps
+
+	install -Dm 644 rengeos-hooks.hook           	"$hooks"/rengeos-hooks.hook
+	install -Dm 644 rengeos-lsb-release.hook      "$hooks"/rengeos-lsb-release.hook
+	install -Dm 644 rengeos-os-release.hook       "$hooks"/rengeos-os-release.hook
+	install -Dm 644 rengeos-pixmaps.hook  		"$hooks"/rengeos-pixmaps.hook
+			    
+	install -Dm 755 rengeos-hooks-runner         	"$bin"/rengeos-hooks-runner
+			    
+	install -Dm 644 rengeos.png       			"$pixmaps"/rengeos.png
+	install -Dm 644 rengeos.svg       			"$pixmaps"/rengeos.svg
+	install -Dm 644 rengeos-logo.png       		"$pixmaps"/rengeos-logo.png
+	install -Dm 644 rengeos-logo.svg       		"$pixmaps"/rengeos-logo.svg
+	install -Dm 644 rengeos-banner.svg       	"$pixmaps"/rengeos-banner.svg
+	install -Dm 644 rengeos.svg 				"$apps"/rengeos.svg
+}

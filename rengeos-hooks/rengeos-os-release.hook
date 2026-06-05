@@ -1,0 +1,13 @@
+## Copyright (C) 2020 Aditya Shakya <adi1090x@gmail.com>
+## Copyright (C) 2026 Le Nguyen Hoang Gia Phu <crystalforceix@gmail.com>
+
+[Trigger]
+Operation = Install
+Operation = Upgrade
+Type = Package
+Target = filesystem
+
+[Action]
+Description = Updating RengeOS OS-Specific Configurations...
+When = PostTransaction
+Exec = /usr/bin/rengeos-hooks-runner os-release
